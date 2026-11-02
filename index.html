@@ -1,0 +1,740 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090d0b">
+<meta name="description" content="NEXORA TOOLS - Free online tools for productivity, business, text, images and developers.">
+<title>NEXORA TOOLS | Smart Tools for Everyone</title>
+
+<style>
+:root {
+  --bg:#090d0b;
+  --panel:#111915;
+  --panel2:#17221b;
+  --green:#00d68f;
+  --green2:#009e69;
+  --gold:#e5b94f;
+  --text:#f1f5f2;
+  --muted:#9aa9a0;
+  --border:#25352c;
+  --danger:#ff6969;
+}
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth}
+body {
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.6;
+}
+button,input,textarea,select {font:inherit}
+button {cursor:pointer}
+a {color:inherit;text-decoration:none}
+.container {width:min(1150px,92%);margin:auto}
+
+/* HEADER */
+header {
+  position:sticky;top:0;z-index:20;
+  background:rgba(9,13,11,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav {
+  min-height:72px;
+  display:flex;align-items:center;
+  justify-content:space-between;gap:20px;
+}
+.logo {
+  font-size:23px;font-weight:900;
+  letter-spacing:1px;color:var(--green);
+}
+.logo span {color:var(--gold)}
+.nav-links {display:flex;gap:25px;align-items:center}
+.nav-links a {font-size:14px;color:var(--muted)}
+.nav-links a:hover {color:var(--green)}
+.menu-btn {
+  display:none;background:transparent;color:white;
+  border:1px solid var(--border);padding:8px 12px;border-radius:8px;
+}
+
+/* HERO */
+.hero {
+  padding:82px 0 60px;
+  text-align:center;
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(0,214,143,.13),transparent 60%);
+}
+.eyebrow {
+  color:var(--gold);font-size:12px;
+  letter-spacing:3px;font-weight:bold;
+  text-transform:uppercase;
+}
+.hero h1 {
+  font-size:clamp(38px,7vw,68px);
+  line-height:1.12;margin:18px 0;
+  letter-spacing:-2px;
+}
+.hero h1 span {
+  color:var(--green);
+  text-shadow:0 0 30px rgba(0,214,143,.2);
+}
+.hero p {
+  color:var(--muted);max-width:620px;
+  margin:0 auto 28px;font-size:16px;
+}
+.search-box {
+  display:flex;max-width:570px;margin:auto;
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:12px;padding:7px;
+}
+.search-box input {
+  flex:1;min-width:0;background:transparent;
+  color:white;border:0;outline:0;padding:12px;
+}
+.search-box button,.primary-btn {
+  background:var(--green);color:#06120c;
+  border:0;border-radius:8px;padding:12px 20px;
+  font-weight:bold;
+}
+.search-box button:hover,.primary-btn:hover {
+  background:#37f0b0;
+}
+.hero-note {font-size:12px;color:var(--muted);margin-top:15px}
+
+/* MAIN */
+.section {padding:48px 0}
+.section-heading {
+  display:flex;justify-content:space-between;
+  align-items:end;gap:20px;margin-bottom:24px;
+}
+.section-heading h2 {font-size:27px}
+.section-heading p {color:var(--muted);font-size:13px}
+.categories {
+  display:flex;gap:10px;flex-wrap:wrap;margin-bottom:25px;
+}
+.category-btn {
+  border:1px solid var(--border);
+  background:var(--panel);color:var(--muted);
+  padding:9px 16px;border-radius:30px;font-size:13px;
+}
+.category-btn.active,.category-btn:hover {
+  background:rgba(0,214,143,.12);
+  border-color:var(--green);color:var(--green);
+}
+.tools-grid {
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+}
+.tool-card {
+  background:linear-gradient(145deg,var(--panel),#0e1511);
+  border:1px solid var(--border);
+  padding:20px;border-radius:14px;
+  transition:.2s;min-height:175px;
+  display:flex;flex-direction:column;
+}
+.tool-card:hover {
+  transform:translateY(-4px);
+  border-color:var(--green);
+  box-shadow:0 12px 30px rgba(0,214,143,.07);
+}
+.tool-icon {
+  font-size:26px;margin-bottom:12px;
+  width:48px;height:48px;
+  display:grid;place-items:center;
+  background:rgba(0,214,143,.09);
+  border-radius:12px;
+}
+.tool-card h3 {font-size:16px;margin-bottom:5px}
+.tool-card p {font-size:12px;color:var(--muted);flex:1}
+.tool-open {
+  margin-top:15px;color:var(--green);
+  font-size:12px;font-weight:bold;
+}
+
+/* AD PLACEHOLDER */
+.ad-space {
+  border:1px dashed #405146;
+  border-radius:12px;padding:20px;
+  text-align:center;color:#738279;
+  font-size:11px;letter-spacing:1px;
+  margin:28px 0;
+  min-height:75px;
+}
+
+/* ABOUT */
+.about-box {
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:16px;padding:30px;
+}
+.about-box h2 {margin-bottom:10px}
+.about-box p {color:var(--muted);font-size:14px}
+
+/* FOOTER */
+footer {
+  border-top:1px solid var(--border);
+  padding:28px 0;margin-top:40px;
+  color:var(--muted);font-size:12px;
+}
+.footer-inner {
+  display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:15px;
+}
+.footer-links {display:flex;gap:18px;flex-wrap:wrap}
+.footer-links a:hover {color:var(--green)}
+
+/* MODAL */
+.modal {
+  display:none;position:fixed;inset:0;z-index:100;
+  background:rgba(0,0,0,.82);
+  padding:20px;overflow-y:auto;
+  align-items:center;justify-content:center;
+}
+.modal.show {display:flex}
+.modal-box {
+  width:min(650px,100%);
+  max-height:90vh;overflow-y:auto;
+  background:#101813;border:1px solid var(--border);
+  border-radius:17px;padding:25px;position:relative;
+}
+.modal-top {
+  display:flex;justify-content:space-between;
+  gap:15px;align-items:center;margin-bottom:20px;
+}
+.modal-top h2 {font-size:21px}
+.close-btn {
+  border:1px solid var(--border);background:transparent;
+  color:white;border-radius:8px;padding:6px 12px;
+}
+.field {margin-bottom:15px}
+.field label {
+  display:block;font-size:13px;
+  color:var(--muted);margin-bottom:7px;
+}
+.field input,.field textarea,.field select {
+  width:100%;background:#080e0a;
+  color:white;border:1px solid var(--border);
+  border-radius:8px;padding:12px;outline:none;
+}
+.field input:focus,.field textarea:focus,.field select:focus {
+  border-color:var(--green);
+}
+.field textarea {min-height:130px;resize:vertical}
+.actions {display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.secondary-btn {
+  background:var(--panel2);border:1px solid var(--border);
+  color:white;padding:11px 16px;border-radius:8px;
+}
+.result {
+  margin-top:17px;padding:14px;
+  background:#08130d;border:1px solid #244432;
+  border-radius:9px;white-space:pre-wrap;
+  overflow-wrap:anywhere;font-size:14px;
+}
+.result:empty {display:none}
+.stats {
+  display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;
+}
+.stat {
+  background:var(--panel2);padding:12px 16px;
+  border-radius:8px;font-size:13px;
+}
+.stat strong {color:var(--green);display:block;font-size:20px}
+.hidden {display:none!important}
+.empty-state {color:var(--muted);padding:30px;text-align:center;grid-column:1/-1}
+
+@media(max-width:900px) {
+  .tools-grid {grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:650px) {
+  .tools-grid {grid-template-columns:repeat(2,1fr);gap:10px}
+  .tool-card {padding:14px;min-height:170px}
+  .hero {padding:60px 0 45px}
+  .nav-links {
+    display:none;position:absolute;top:72px;left:0;right:0;
+    background:#101813;padding:20px;
+    flex-direction:column;align-items:flex-start;
+    border-bottom:1px solid var(--border);
+  }
+  .nav-links.open {display:flex}
+  .menu-btn {display:block}
+  .section-heading {display:block}
+  .section-heading p {margin-top:5px}
+}
+@media(max-width:380px) {
+  .tools-grid {grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a href="#" class="logo">NEXORA<span>TOOLS</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#tools">All Tools</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container">
+    <div class="eyebrow">Your digital workspace</div>
+    <h1>Smart Tools.<br><span>Simple Solutions.</span></h1>
+    <p>
+      Get more done with free online tools for text, business,
+      calculations, images and everyday productivity.
+    </p>
+    <div class="search-box">
+      <input id="searchInput" type="search"
+        placeholder="Search for a tool..." aria-label="Search tools">
+      <button id="searchBtn">Search</button>
+    </div>
+    <div class="hero-note">Fast · Simple · Browser-based · Easy to use</div>
+  </div>
+</section>
+
+<section class="section" id="tools">
+<div class="container">
+  <div class="section-heading">
+    <div>
+      <h2>Explore Our Tools</h2>
+      <p>Choose a tool and get started instantly.</p>
+    </div>
+  </div>
+
+  <div class="categories" id="categories">
+    <button class="category-btn active" data-category="All">All Tools</button>
+    <button class="category-btn" data-category="Text">Text</button>
+    <button class="category-btn" data-category="Business">Business</button>
+    <button class="category-btn" data-category="Calculators">Calculators</button>
+    <button class="category-btn" data-category="Images">Images</button>
+    <button class="category-btn" data-category="Developer">Developer</button>
+    <button class="category-btn" data-category="Productivity">Productivity</button>
+  </div>
+
+  <div class="tools-grid" id="toolsGrid"></div>
+
+  <div class="ad-space">
+    ADVERTISEMENT SPACE · Advertising can be added after hosting and approval
+  </div>
+</div>
+</section>
+
+<section class="section" id="about">
+<div class="container">
+  <div class="about-box">
+    <h2>About NEXORA TOOLS</h2>
+    <p>
+      NEXORA TOOLS is an online productivity platform designed to make
+      everyday digital tasks easier. Our tools are simple to use and
+      process supported files directly in your browser.
+    </p>
+    <br>
+    <p>
+      Some tools work entirely on your device. Do not use this website
+      to process sensitive or confidential information unless you have
+      verified the privacy and security arrangements.
+    </p>
+  </div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+  <div class="about-box">
+    <h2>Contact</h2>
+    <p>Questions, suggestions or feedback? Contact the website owner.</p>
+    <p style="margin-top:12px">
+      Email: <a style="color:var(--green)" href="mailto:YOUR-EMAIL@example.com">YOUR-EMAIL@example.com</a>
+    </p>
+    <p style="margin-top:8px;font-size:12px">
+      Replace the example email address with your real contact email before publishing.
+    </p>
+  </div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container footer-inner">
+  <div>© <span id="year"></span> NEXORA TOOLS. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#tools">Tools</a>
+  </div>
+</div>
+</footer>
+
+<div class="modal" id="toolModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <div class="modal-top">
+      <h2 id="modalTitle">Tool</h2>
+      <button class="close-btn" id="closeModal">✕ Close</button>
+    </div>
+    <div id="toolContent"></div>
+  </div>
+</div>
+
+<script>
+const tools = [
+  {id:"word",name:"Word Counter",desc:"Count words, characters and sentences.",icon:"📝",cat:"Text"},
+  {id:"case",name:"Text Case Converter",desc:"Convert text to uppercase, lowercase and more.",icon:"🔠",cat:"Text"},
+  {id:"spaces",name:"Remove Extra Spaces",desc:"Clean unnecessary spaces from text.",icon:"🧹",cat:"Text"},
+  {id:"json",name:"JSON Formatter",desc:"Format or minify JSON data.",icon:"{ }",cat:"Developer"},
+  {id:"base64",name:"Base64 Converter",desc:"Encode and decode Base64 text.",icon:"🔐",cat:"Developer"},
+  {id:"percentage",name:"Percentage Calculator",desc:"Calculate percentages quickly.",icon:"％",cat:"Calculators"},
+  {id:"vat",name:"VAT Calculator",desc:"Calculate VAT and total prices.",icon:"🧾",cat:"Business"},
+  {id:"profit",name:"Profit Calculator",desc:"Calculate profit and profit margin.",icon:"📈",cat:"Business"},
+  {id:"age",name:"Age Calculator",desc:"Calculate your age from your birth date.",icon:"🎂",cat:"Productivity"},
+  {id:"date",name:"Date Difference",desc:"Find the time between two dates.",icon:"📅",cat:"Productivity"},
+  {id:"length",name:"Length Converter",desc:"Convert common length measurements.",icon:"📏",cat:"Calculators"},
+  {id:"password",name:"Password Generator",desc:"Generate a random secure password.",icon:"🔑",cat:"Developer"},
+  {id:"compress",name:"Image Compressor",desc:"Reduce image file size in your browser.",icon:"🖼️",cat:"Images"},
+  {id:"resize",name:"Image Resizer",desc:"Resize images using your browser.",icon:"📐",cat:"Images"}
+];
+
+const grid = document.getElementById("toolsGrid");
+const modal = document.getElementById("toolModal");
+const content = document.getElementById("toolContent");
+const title = document.getElementById("modalTitle");
+let currentCategory = "All";
+
+function renderTools() {
+  const query = document.getElementById("searchInput").value.toLowerCase().trim();
+  const filtered = tools.filter(t =>
+    (currentCategory === "All" || t.cat === currentCategory) &&
+    (t.name.toLowerCase().includes(query) || t.desc.toLowerCase().includes(query))
+  );
+
+  grid.innerHTML = "";
+  if (!filtered.length) {
+    grid.innerHTML = '<div class="empty-state">No tools found. Try another search.</div>';
+    return;
+  }
+
+  filtered.forEach(t => {
+    const card = document.createElement("article");
+    card.className = "tool-card";
+    card.innerHTML = `
+      <div class="tool-icon">${t.icon}</div>
+      <h3>${t.name}</h3>
+      <p>${t.desc}</p>
+      <div class="tool-open">OPEN TOOL →</div>
+    `;
+    card.addEventListener("click", () => openTool(t.id));
+    grid.appendChild(card);
+  });
+}
+
+document.getElementById("categories").addEventListener("click", e => {
+  const btn = e.target.closest("[data-category]");
+  if (!btn) return;
+  currentCategory = btn.dataset.category;
+  document.querySelectorAll(".category-btn").forEach(b =>
+    b.classList.toggle("active", b === btn)
+  );
+  renderTools();
+});
+
+document.getElementById("searchInput").addEventListener("input", renderTools);
+document.getElementById("searchBtn").addEventListener("click", renderTools);
+document.getElementById("menuBtn").addEventListener("click", () => {
+  document.getElementById("navLinks").classList.toggle("open");
+});
+document.querySelectorAll("#navLinks a").forEach(a =>
+  a.addEventListener("click", () => document.getElementById("navLinks").classList.remove("open"))
+);
+
+document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("closeModal").addEventListener("click", closeTool);
+modal.addEventListener("click", e => { if (e.target === modal) closeTool(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeTool(); });
+
+function closeTool() {
+  modal.classList.remove("show");
+  content.innerHTML = "";
+}
+
+function showTool(id, html) {
+  const tool = tools.find(t => t.id === id);
+  title.textContent = tool ? tool.name : "Tool";
+  content.innerHTML = html;
+  modal.classList.add("show");
+}
+
+function field(label, id, placeholder="", type="text") {
+  return `<div class="field"><label for="${id}">${label}</label>
+    <input id="${id}" type="${type}" placeholder="${placeholder}"></div>`;
+}
+function area(label,id,placeholder="Enter text here...") {
+  return `<div class="field"><label for="${id}">${label}</label>
+    <textarea id="${id}" placeholder="${placeholder}"></textarea></div>`;
+}
+function result(id="result") {
+  return `<div class="result" id="${id}" aria-live="polite"></div>`;
+}
+function button(label,id="run",cls="primary-btn") {
+  return `<button type="button" class="${cls}" id="${id}">${label}</button>`;
+}
+function output(id,text) {
+  document.getElementById(id).textContent = text;
+}
+function num(id) {
+  return Number(document.getElementById(id).value);
+}
+
+function openTool(id) {
+  switch(id) {
+    case "word":
+      showTool(id, area("Your text","wordText") +
+        `<div class="stats">
+          <div class="stat">Words<strong id="words">0</strong></div>
+          <div class="stat">Characters<strong id="chars">0</strong></div>
+          <div class="stat">No spaces<strong id="nospace">0</strong></div>
+          <div class="stat">Sentences<strong id="sentences">0</strong></div>
+        </div>`);
+      document.getElementById("wordText").addEventListener("input", () => {
+        const v = document.getElementById("wordText").value;
+        document.getElementById("words").textContent = (v.trim().match(/\S+/g)||[]).length;
+        document.getElementById("chars").textContent = v.length;
+        document.getElementById("nospace").textContent = v.replace(/\s/g,"").length;
+        document.getElementById("sentences").textContent = v.trim() ? (v.match(/[.!?]+(?=\s|$)/g)||[]).length + (/[.!?]$/.test(v.trim())?0:1) : 0;
+      });
+      break;
+
+    case "case":
+      showTool(id, area("Enter your text","caseText") +
+        `<div class="actions">
+          ${button("UPPERCASE","upper")}
+          ${button("lowercase","lower","secondary-btn")}
+          ${button("Title Case","titlecase","secondary-btn")}
+          ${button("Sentence case","sentencecase","secondary-btn")}
+        </div>${result()}`);
+      document.getElementById("upper").onclick = () => output("result",document.getElementById("caseText").value.toUpperCase());
+      document.getElementById("lower").onclick = () => output("result",document.getElementById("caseText").value.toLowerCase());
+      document.getElementById("titlecase").onclick = () => output("result",document.getElementById("caseText").value.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase()));
+      document.getElementById("sentencecase").onclick = () => output("result",document.getElementById("caseText").value.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g,c=>c.toUpperCase()));
+      break;
+
+    case "spaces":
+      showTool(id, area("Text to clean","spaceText") +
+        `<div class="actions">${button("Remove extra spaces","clean")}</div>${result()}`);
+      document.getElementById("clean").onclick = () =>
+        output("result",document.getElementById("spaceText").value.replace(/\s+/g," ").trim());
+      break;
+
+    case "json":
+      showTool(id, area("Paste JSON","jsonText") +
+        `<div class="actions">${button("Format JSON","format")}${button("Minify JSON","minify","secondary-btn")}</div>${result()}`);
+      document.getElementById("format").onclick = () => {
+        try { output("result",JSON.stringify(JSON.parse(document.getElementById("jsonText").value),null,2)); }
+        catch(e) { output("result","Invalid JSON: "+e.message); }
+      };
+      document.getElementById("minify").onclick = () => {
+        try { output("result",JSON.stringify(JSON.parse(document.getElementById("jsonText").value))); }
+        catch(e) { output("result","Invalid JSON: "+e.message); }
+      };
+      break;
+
+    case "base64":
+      showTool(id, area("Enter text or Base64","baseText") +
+        `<div class="actions">${button("Encode","encode")}${button("Decode","decode","secondary-btn")}</div>${result()}`);
+      document.getElementById("encode").onclick = () => {
+        try { output("result",btoa(unescape(encodeURIComponent(document.getElementById("baseText").value))); }
+        catch(e) { output("result","Could not encode this text."); }
+      };
+      document.getElementById("decode").onclick = () => {
+        try { output("result",decodeURIComponent(escape(atob(document.getElementById("baseText").value.trim()))); }
+        catch(e) { output("result","Invalid Base64 input."); }
+      };
+      break;
+
+    case "percentage":
+      showTool(id, field("What is the percentage?","percent","e.g. 20","number") +
+        field("Of what number?","percentOf","e.g. 150","number") +
+        `<div class="actions">${button("Calculate")}</div>${result()}`);
+      document.getElementById("run").onclick = () => {
+        const p=num("percent"),n=num("percentOf");
+        if(!Number.isFinite(p)||!Number.isFinite(n)) return output("result","Enter valid numbers.");
+        output("result",`${p}% of ${n} = ${(p/100*n).toLocaleString()}`);
+      };
+      break;
+
+    case "vat":
+      showTool(id, field("Price before VAT","vatPrice","Enter amount","number") +
+        field("VAT rate (%)","vatRate","e.g. 16","number") +
+        `<div class="actions">${button("Calculate VAT")}</div>${result()}`);
+      document.getElementById("run").onclick = () => {
+        const p=num("vatPrice"),r=num("vatRate");
+        if(!Number.isFinite(p)||!Number.isFinite(r)||p<0||r<0) return output("result","Enter valid positive numbers.");
+        const tax=p*r/100;
+        output("result",`VAT amount: ${tax.toFixed(2)}\nTotal price: ${(p+tax).toFixed(2)}`);
+      };
+      break;
+
+    case "profit":
+      showTool(id, field("Selling price","sellPrice","Amount","number") +
+        field("Cost price","costPrice","Amount","number") +
+        `<div class="actions">${button("Calculate Profit")}</div>${result()}`);
+      document.getElementById("run").onclick = () => {
+        const s=num("sellPrice"),c=num("costPrice");
+        if(!Number.isFinite(s)||!Number.isFinite(c)||s<0||c<0||s===0) return output("result","Enter valid prices. Selling price must be above zero.");
+        const profit=s-c,margin=profit/s*100;
+        output("result",`Profit: ${profit.toFixed(2)}\nProfit margin: ${margin.toFixed(2)}%\n${profit>=0?"Result: Profit":"Result: Loss"}`);
+      };
+      break;
+
+    case "age":
+      showTool(id, field("Date of birth","birthDate","","date") +
+        `<div class="actions">${button("Calculate Age")}</div>${result()}`);
+      document.getElementById("run").onclick = () => {
+        const d=new Date(document.getElementById("birthDate").value+"T00:00:00");
+        const now=new Date();
+        if(!document.getElementById("birthDate").value||isNaN(d)||d>now) return output("result","Enter a valid birth date.");
+        let y=now.getFullYear()-d.getFullYear(),m=now.getMonth()-d.getMonth(),day=now.getDate()-d.getDate();
+        if(day<0){m--;day+=new Date(now.getFullYear(),now.getMonth(),0).getDate();}
+        if(m<0){y--;m+=12;}
+        output("result",`Age: ${y} years, ${m} months and ${day} days.`);
+      };
+      break;
+
+    case "date":
+      showTool(id, field("Start date","startDate","","date") +
+        field("End date","endDate","","date") +
+        `<div class="actions">${button("Calculate Difference")}</div>${result()}`);
+      document.getElementById("run").onclick = () => {
+        const a=document.getElementById("startDate").value,b=document.getElementById("endDate").value;
+        if(!a||!b) return output("result","Select both dates.");
+        const days=Math.abs(Date.parse(b+"T00:00:00")-Date.parse(a+"T00:00:00"))/86400000;
+        if(!Number.isFinite(days)) return output("result","Enter valid dates.");
+        output("result",`Difference: ${days} day(s)\nApproximately ${(days/7).toFixed(1)} weeks.`);
+      };
+      break;
+
+    case "length":
+      showTool(id, field("Value","lengthValue","Enter value","number") +
+        `<div class="field"><label for="lengthFrom">Convert from</label><select id="lengthFrom">
+        <option value="m">Metres</option><option value="km">Kilometres</option>
+        <option value="cm">Centimetres</option><option value="mm">Millimetres</option>
+        <option value="in">Inches</option><option value="ft">Feet</option></select></div>
+        <div class="field"><label for="lengthTo">Convert to</label><select id="lengthTo">
+        <option value="km">Kilometres</option><option value="m">Metres</option>
+        <option value="cm">Centimetres</option><option value="mm">Millimetres</option>
+        <option value="in">Inches</option><option value="ft">Feet</option></select></div>
+        <div class="actions">${button("Convert")}</div>${result()}`);
+      document.getElementById("run").onclick = () => {
+        const factors={m:1,km:1000,cm:.01,mm:.001,in:.0254,ft:.3048};
+        const v=num("lengthValue"),from=document.getElementById("lengthFrom").value,to=document.getElementById("lengthTo").value;
+        if(!Number.isFinite(v)) return output("result","Enter a valid number.");
+        output("result",`${v} ${from} = ${(v*factors[from]/factors[to]).toFixed(6)} ${to}`);
+      };
+      break;
+
+    case "password":
+      showTool(id, `<div class="field"><label for="passLength">Password length</label>
+        <input id="passLength" type="number" min="8" max="64" value="16"></div>
+        <div class="field"><label><input type="checkbox" id="passNumbers" checked> Include numbers</label></div>
+        <div class="field"><label><input type="checkbox" id="passSymbols" checked> Include symbols</label></div>
+        <div class="actions">${button("Generate Password")}${button("Copy Password","copyPass","secondary-btn")}</div>${result()}`);
+      document.getElementById("run").onclick = () => {
+        const len=Number(document.getElementById("passLength").value);
+        if(!Number.isInteger(len)||len<8||len>64) return output("result","Choose a length from 8 to 64.");
+        let chars="abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";
+        if(document.getElementById("passNumbers").checked) chars+="23456789";
+        if(document.getElementById("passSymbols").checked) chars+="!@#$%&*_-+=";
+        const bytes=new Uint32Array(len);
+        crypto.getRandomValues(bytes);
+        output("result",Array.from(bytes,b=>chars[b%chars.length]).join(""));
+      };
+      document.getElementById("copyPass").onclick = () => copyText(document.getElementById("result").textContent);
+      break;
+
+    case "compress":
+      showTool(id, `<div class="field"><label for="imageFile">Choose an image</label><input id="imageFile" type="file" accept="image/*"></div>
+        <div class="field"><label for="imageQuality">Image quality (0.1 to 1)</label><input id="imageQuality" type="number" min="0.1" max="1" step="0.1" value="0.7"></div>
+        <div class="actions">${button("Compress Image")}</div>${result()}`);
+      document.getElementById("run").onclick = () => processImage("compress");
+      break;
+
+    case "resize":
+      showTool(id, `<div class="field"><label for="imageFile">Choose an image</label><input id="imageFile" type="file" accept="image/*"></div>
+        ${field("New width (pixels)","imageWidth","e.g. 800","number")}
+        ${field("New height (pixels)","imageHeight","e.g. 600","number")}
+        <div class="actions">${button("Resize Image")}</div>${result()}`);
+      document.getElementById("run").onclick = () => processImage("resize");
+      break;
+  }
+}
+
+function copyText(text) {
+  if(!text) return;
+  navigator.clipboard.writeText(text).then(() => {
+    const r=document.getElementById("result");
+    if(r) r.textContent += "\n\nCopied to clipboard!";
+  }).catch(() => {
+    const r=document.getElementById("result");
+    if(r) r.textContent += "\n\nClipboard unavailable. Select and copy the text manually.";
+  });
+}
+
+function processImage(mode) {
+  const file=document.getElementById("imageFile").files[0];
+  if(!file) return output("result","Please choose an image first.");
+  if(!file.type.startsWith("image/")) return output("result","Please select a valid image.");
+  const reader=new FileReader();
+  reader.onload=e => {
+    const img=new Image();
+    img.onload=() => {
+      const canvas=document.createElement("canvas");
+      let w=img.width,h=img.height;
+      if(mode==="resize") {
+        w=Number(document.getElementById("imageWidth").value);
+        h=Number(document.getElementById("imageHeight").value);
+        if(!Number.isInteger(w)||!Number.isInteger(h)||w<1||h<1||w>10000||h>10000)
+          return output("result","Enter valid dimensions between 1 and 10000 pixels.");
+      }
+      canvas.width=w;canvas.height=h;
+      const ctx=canvas.getContext("2d");
+      ctx.drawImage(img,0,0,w,h);
+      const quality=mode==="compress"?Number(document.getElementById("imageQuality").value):.9;
+      if(!Number.isFinite(quality)||quality<.1||quality>1)
+        return output("result","Choose a quality between 0.1 and 1.");
+      const mime=file.type==="image/png"&&mode==="resize"?"image/png":"image/jpeg";
+      canvas.toBlob(blob => {
+        if(!blob) return output("result","Could not process this image.");
+        const url=URL.createObjectURL(blob);
+        const size=(blob.size/1024).toFixed(1);
+        const original=(file.size/1024).toFixed(1);
+        const link=document.createElement("a");
+        link.href=url;
+        link.download=(mode==="compress"?"compressed-":"resized-")+file.name.replace(/\.[^.]+$/,"")+".jpg";
+        link.textContent="Download processed image";
+        link.style.color="#00d68f";
+        link.style.display="inline-block";
+        link.style.marginTop="12px";
+        const box=document.getElementById("result");
+        box.textContent=`Original size: ${original} KB\nNew size: ${size} KB\nDimensions: ${w} × ${h} pixels\n`;
+        box.appendChild(document.createElement("br"));
+        box.appendChild(link);
+        link.addEventListener("click",()=>setTimeout(()=>URL.revokeObjectURL(url),60000),{once:true});
+      },mime,quality);
+    };
+    img.onerror=()=>output("result","Could not read this image.");
+    img.src=e.target.result;
+  };
+  reader.onerror=()=>output("result","Could not load the selected file.");
+  reader.readAsDataURL(file);
+}
+
+renderTools();
+</script>
+</body>
+</html>
